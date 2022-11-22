@@ -1,68 +1,108 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
-        <!-- 
-          <img
-          src="https://bulma.io/images/bulma-logo2.png"
-          width="112"
-          height="28"
-          alt="Soccer Bet"
-        />
-         -->
-        Soccer Bet
-      </a>
-
-      <a
-        role="button"
-        class="navbar-burger"
-        aria-label="menu"
-        aria-expanded="false"
-        data-target="navbarBasicExample"
-      >
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <router-link to="/" class="navbar-item">Home</router-link>
-        <router-link to="/about" class="navbar-item">About</router-link>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link"> More </a>
-
-          <div class="navbar-dropdown">
-            <router-link to="/tournament" class="navbar-item"
-              >Tournaments</router-link
-            >
-            <router-link to="/football-team" class="navbar-item"
-              >Football Teams</router-link
-            >
-            <router-link to="/match" class="navbar-item">Matches</router-link>
-            <router-link to="/bet" class="navbar-item">Bets</router-link>
-            <hr class="navbar-divider" />
-            <a class="navbar-item"> Report an issue </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
+  <!-- Navbar goes here -->
+  <!-- eslint-disable -->
+  <nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex justify-between">
+        <div class="flex space-x-7">
+          <!-- Website Logo -->
+          <div>
+            <a href="#" class="flex items-center py-4 px-2">
+              <!-- <img src="bet.png" alt="Logo" class="h-8 w-8 mr-2" /> -->
+              <span class="font-semibold text-gray-500 text-lg"
+                >Soccer Bet App</span
+              >
             </a>
-            <a class="button is-light"> Log in </a>
+          </div>
+          <!-- Primary Navbar items -->
+          <div class="hidden md:flex items-center space-x-1">
+            <router-link
+              to="/"
+              class="
+                py-4
+                px-2
+                text-gray-500
+                font-semibold
+                hover:text-green-500
+                transition
+                duration-300
+              "
+              >Home</router-link
+            >
+            <router-link
+              to="/tournament"
+              class="
+                py-4
+                px-2
+                text-gray-500
+                font-semibold
+                hover:text-green-500
+                transition
+                duration-300
+              "
+              >Tournament</router-link
+            >
+            <router-link
+              to="/match"
+              class="
+                py-4
+                px-2
+                text-gray-500
+                font-semibold
+                hover:text-green-500
+                transition
+                duration-300
+              "
+              >Match</router-link
+            >
+            <router-link
+              to="/football-team"
+              class="
+                py-4
+                px-2
+                text-gray-500
+                font-semibold
+                hover:text-green-500
+                transition
+                duration-300
+              "
+              >Football Team</router-link
+            >
+            <router-link
+              to="/bet"
+              class="
+                py-4
+                px-2
+                text-gray-500
+                font-semibold
+                hover:text-green-500
+                transition
+                duration-300
+              "
+              >Bet</router-link
+            >
+            <router-link
+              to="/about"
+              class="
+                py-4
+                px-2
+                text-gray-500
+                font-semibold
+                hover:text-green-500
+                transition
+                duration-300
+              "
+              >About us</router-link
+            >
           </div>
         </div>
       </div>
     </div>
   </nav>
 
-  <section class="section">
-    <router-view />
-  </section>
+  <!-- 
+    <router-link to="/" class="navbar-item">Home</router-link>
+  -->
+
+  <router-view />
 </template>

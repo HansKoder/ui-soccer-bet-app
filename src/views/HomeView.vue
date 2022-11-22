@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>Bienvenido a la aplicacion de apuestas de futbol</h1>
+  <div>
+    <h1>Home</h1>
   </div>
 </template>
 

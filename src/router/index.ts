@@ -44,6 +44,8 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+  // eslint-disable-next-line
+  linkActiveClass: "py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold",
 });
 
 export default router;

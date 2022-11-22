@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>Apuesta</h1>
-  </div>
+  <h1>Bet</h1>
 </template>
 
 <script lang="ts">
