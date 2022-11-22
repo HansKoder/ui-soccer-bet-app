@@ -100,9 +100,5 @@
     </div>
   </nav>
 
-  <!-- 
-    <router-link to="/" class="navbar-item">Home</router-link>
-  -->
-
   <router-view />
 </template>
