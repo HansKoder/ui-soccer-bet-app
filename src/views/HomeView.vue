@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h1>Home</h1>
-  </div>
+  <!-- eslint-disable -->
+  <section class="container mt-10">
+    <h1 class="font-bold text-4xl text-center font-sans text-gray-700">
+      Home
+    </h1>
+  </section>
 </template>
 
 <script lang="ts">

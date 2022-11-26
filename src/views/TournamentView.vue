@@ -6,6 +6,7 @@
     </h1>
 
     <button
+      @click="isOpen = true"
       class="
         bg-sky-500/75
         hover:bg-sky-500/100
@@ -18,6 +19,13 @@
     >
       Add Tournament
     </button>
+
+    <!-- Call compnent modal -->
+    <teleport to="body">
+      <div v-if="isOpen">
+        <ModalAddTournament @closeModalTournament="closeModalTournament" />
+      </div>
+    </teleport>
 
     <div class="flex flex-col mt-8">
       <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -66,7 +74,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="border-b" v-for="(item, index) in tournaments" :key="index">
+                <tr
+                  class="border-b"
+                  v-for="(item, index) in tournaments"
+                  :key="index"
+                >
                   <td
                     class="
                       px-6
@@ -77,10 +89,7 @@
                       text-gray-900
                     "
                   >
-                    <img
-                      :src="item.image"
-                      class="w-24 h-24 rounded-full"
-                    />
+                    <img :src="item.image" class="w-24 h-24 rounded-full" />
                   </td>
                   <td
                     class="
@@ -91,7 +100,7 @@
                       whitespace-nowrap
                     "
                   >
-                     {{ item.title }}
+                    {{ item.title }}
                   </td>
                   <td
                     class="
@@ -117,6 +126,9 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 
+// components
+import ModalAddTournament from "../components/ModalAddTournament.vue";
+
 export default defineComponent({
   name: "TournamentView",
   setup() {
@@ -134,9 +146,20 @@ export default defineComponent({
       },
     ]);
 
+    let isOpen = ref(false);
+
     return {
       tournaments,
+      isOpen,
     };
+  },
+  components: {
+    ModalAddTournament,
+  },
+  methods: {
+    closeModalTournament() {
+      this.isOpen = false;
+    },
   },
 });
 </script>
