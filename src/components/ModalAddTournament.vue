@@ -49,36 +49,92 @@
           <div class="modal-wrapper-flex sm:flex sm:items-start">
             <div
               class="
-                modal-icon
-                mx-auto
-                flex-shrink-0 flex
-                items-center
-                justify-center
-                h-12
-                w-12
-                rounded-full
-                bg-red-100
-                sm:mx-0 sm:h-10 sm:w-10
-              "
-            >
-              <svg
-                class="w-6 h-6 text-red-600 fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M22.5 38V25.5H10v-3h12.5V10h3v12.5H38v3H25.5V38Z" />
-              </svg>
-            </div>
-            <div
-              class="
                 modal-content
-                text-center
                 mt-3
                 sm:mt-0 sm:ml-4 sm:text-left
               "
             >
-              <h3 class="text-lg font-medium text-gray-900">Form Tournament</h3>
+              <h3 class="text-lg font-medium text-gray-900 text-center">Form</h3>
               <div class="modal-text mt-2">
-                <p class="text-gray-500 text-sm">Name</p>
+                <div class="w-full">
+                  <form class="px-8 mt-10">
+                     <div class="mb-4">
+                      <label
+                        class="block text-gray-700 text-sm font-bold mb-2"
+                        for="image"
+                      >
+                        Image
+                      </label>
+                      <input
+                        class="
+                          shadow
+                          appearance-none
+                          border
+                          rounded
+                          w-full
+                          py-2
+                          px-3
+                          text-gray-700
+                          leading-tight
+                          focus:outline-none focus:shadow-outline
+                        "
+                        id="image"
+                        type="text"
+                        placeholder="Image"
+                      />
+                    </div>                     
+                    <div class="mb-4">
+                      <label
+                        class="block text-gray-700 text-sm font-bold mb-2"
+                        for="name"
+                      >
+                        Name
+                      </label>
+                      <input
+                        class="
+                          shadow
+                          appearance-none
+                          border
+                          rounded
+                          w-full
+                          py-2
+                          px-3
+                          text-gray-700
+                          leading-tight
+                          focus:outline-none focus:shadow-outline
+                        "
+                        id="name"
+                        type="text"
+                        placeholder="Name"
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <label
+                        class="block text-gray-700 text-sm font-bold mb-2"
+                        for="description"
+                      >
+                        Description
+                      </label>
+                      <input
+                        class="
+                          shadow
+                          appearance-none
+                          border
+                          rounded
+                          w-full
+                          py-2
+                          px-3
+                          text-gray-700
+                          leading-tight
+                          focus:outline-none focus:shadow-outline
+                        "
+                        id="description"
+                        type="text"
+                        placeholder="Description"
+                      />
+                    </div>                      
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -109,7 +165,7 @@
               bg-white
               font-medium
               text-gray-700
-              hover:bg-gray-50
+              hover:bg-gray-200
               focus:outline-none
               focus:ring-2
               focus:ring-offset-2
@@ -133,7 +189,7 @@
               font-medium
               text-white
               font-bold
-              hover:bg-gray-50
+              hover:bg-blue-400
               focus:outline-none
               focus:ring-2
               focus:ring-offset-2
