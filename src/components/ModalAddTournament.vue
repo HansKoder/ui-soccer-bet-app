@@ -47,18 +47,14 @@
       >
         <div class="modal-wrapper bg-white px-4 pt-5 pb-4 sm:p-2 sm:pb-4">
           <div class="modal-wrapper-flex sm:flex sm:items-start">
-            <div
-              class="
-                modal-content
-                mt-3
-                sm:mt-0 sm:ml-4 sm:text-left
-              "
-            >
-              <h3 class="text-lg font-medium text-gray-900 text-center">Form</h3>
-              <div class="modal-text mt-2">
+            <div class="modal-content mt-3 sm:mt-0 sm:ml-4 sm:text-left w-full">
+              <h3 class="text-lg font-medium text-gray-900 text-center">
+                Form
+              </h3>
+              <div class="modal-text mt-2 w-full p-1">
                 <div class="w-full">
                   <form class="px-8 mt-10">
-                     <div class="mb-4">
+                    <div class="mb-4">
                       <label
                         class="block text-gray-700 text-sm font-bold mb-2"
                         for="image"
@@ -81,8 +77,9 @@
                         id="image"
                         type="text"
                         placeholder="Image"
+                        v-model="tournament.image"
                       />
-                    </div>                     
+                    </div>
                     <div class="mb-4">
                       <label
                         class="block text-gray-700 text-sm font-bold mb-2"
@@ -106,6 +103,7 @@
                         id="name"
                         type="text"
                         placeholder="Name"
+                        v-model="tournament.name"
                       />
                     </div>
                     <div class="mb-4">
@@ -131,8 +129,9 @@
                         id="description"
                         type="text"
                         placeholder="Description"
+                        v-model="tournament.description"
                       />
-                    </div>                      
+                    </div>
                   </form>
                 </div>
               </div>
@@ -206,16 +205,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ModalAddTournament",
   setup(props, { emit }) {
+    const tournament = {
+      name: "",
+      description: "",
+      image: "",
+    };
+
     const notify = () => {
       emit("closeModalTournament");
     };
 
     return {
+      tournament,
       notify,
     };
   },
