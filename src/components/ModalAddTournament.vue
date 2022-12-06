@@ -195,6 +195,7 @@
               focus:ring-blue-200
               sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm
             "
+            @click="addNewTournament"
           >
             Save
           </button>
@@ -220,9 +221,14 @@ export default defineComponent({
       emit("closeModalTournament");
     };
 
+    const addNewTournament = () => {
+      emit("addNewTournament", tournament);
+    };
+
     return {
       tournament,
       notify,
+      addNewTournament,
     };
   },
 });

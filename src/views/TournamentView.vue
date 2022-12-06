@@ -23,7 +23,7 @@
     <!-- Call compnent modal -->
     <teleport to="body">
       <div v-if="isOpen">
-        <ModalAddTournament @closeModalTournament="closeModalTournament" />
+        <ModalAddTournament @closeModalTournament="closeModalTournament" @addNewTournament="addNewTournament" />
       </div>
     </teleport>
 
@@ -100,7 +100,7 @@
                       whitespace-nowrap
                     "
                   >
-                    {{ item.title }}
+                    {{ item.name }}
                   </td>
                   <td
                     class="
@@ -126,8 +126,6 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from "vue";
 
-import to from "await-to-js";
-
 // Services
 import TournamentService from "../services/TournamentService";
 
@@ -137,50 +135,36 @@ import ModalAddTournament from "../components/ModalAddTournament.vue";
 export default defineComponent({
   name: "TournamentView",
   setup() {
-    // make users variable reactive with the ref() function
-    /*
-    const tournaments = ref([
-      {
-        image: "https://cdn.dribbble.com/users/84058/screenshots/7194795/1.jpg",
-        title: "Qatar 2022",
-        description: "La copa mundial de futbol de la FIFA Catar 2022",
-      },
-    ]);
-    */
-
     // Vars
-    let tournaments = ref([]);
-
+    let tournaments = ref([] as any[]);
     let isOpen = ref(false);
 
     // Methods
     const loadTournaments = async () => {
-      console.log("... load .. tournaments");
-      const [err, response] = await to(TournamentService.getAll());
-      console.log("err -->", err);
-      console.log("response --> ", response);
-
-      if (err) {
-        console.log("Here error ", err);
-        tournaments = ref([]);
-      }
-
-      if (response && response.data) {
-        console.log("add --> ", response.data);
-        tournaments = ref(response.data);
-      }
-
-      console.log("tournaments after load -->", tournaments);
+      tournaments.value = await TournamentService.getAll();
     };
 
+    const closeModalTournament = () => {
+      isOpen.value = false;
+    };
+
+    const addNewTournament = async (event: any) => {
+      const item = await TournamentService.save(event);
+      tournaments.value.push(item);
+
+      isOpen.value = false;
+    };
+
+    // Mounted
     onMounted(async () => {
-      console.log("onMounted...");
       await loadTournaments();
     });
 
     return {
       tournaments,
       isOpen,
+      addNewTournament,
+      closeModalTournament,
     };
   },
   components: {
